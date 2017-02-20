@@ -1,0 +1,19 @@
+version: '2'
+services:
+    rabbit:
+        image: rabbitmq:3
+    parse:
+        build: ./web-chat-processor/build/docker/
+        environment:
+            - CLOUDAMQP_URL=amqp://rabbit
+        links:
+            - rabbit
+    web:
+        build: ./web-chat-server/
+        ports:
+            - "3000:3000"
+        links:
+            - rabbit
+            - parse
+        environment:
+            - CLOUDAMQP_URL=amqp://rabbit

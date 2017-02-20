@@ -45,6 +45,11 @@ Now you can test the whole system. You can chat normally, but if you use one of 
 
 The system can be fully distributed. You can run the chat server, the chat clients, the AMQP broker and the text parser all in different machines. 
 
+With Docker-Compose
+```
+$ docker-compose up
+```
+
 # Improvements
 Besides improving the code, which is neither robust nor pretty, there are a few things that you can try to improve the functionality of the system. Some examples:
 
